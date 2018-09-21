@@ -48,7 +48,7 @@
             db.conectar();
             db.query.execute(qry);
             db.desconectar();
-            request.getRequestDispatcher("../home.jsp?friendsList=1&message=204").forward(request, response);
+            request.getRequestDispatcher("../home.jsp?friendsList=1&message=203").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             out.println(e);
