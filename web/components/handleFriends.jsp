@@ -19,6 +19,7 @@
             request.getRequestDispatcher("../home.jsp?friendsToSearch=1&message=500").forward(request, response);
         }
     }
+    
     if (request.getParameter("acceptFriend") != null) {
         try {
             Dba db = new Dba();
@@ -31,10 +32,12 @@
             db.desconectar();
             request.getRequestDispatcher("../home.jsp?friendsRequests=1&message=202").forward(request, response);
         } catch (Exception e) {
-            out.println(3);
+            e.printStackTrace();
+            out.println(e);
             request.getRequestDispatcher("../home.jsp?friendsRequests=1&message=500").forward(request, response);
         }
     }
+    
     if (request.getParameter("rejectFriend") != null) {
         try {
             Dba db = new Dba();
@@ -47,7 +50,26 @@
             db.desconectar();
             request.getRequestDispatcher("../home.jsp?friendsList=1&message=204").forward(request, response);
         } catch (Exception e) {
-            out.println(3);
+            e.printStackTrace();
+            out.println(e);
+            request.getRequestDispatcher("../home.jsp?friendsList=1&message=500").forward(request, response);
+        }
+    }
+    
+    if (request.getParameter("removeFriend") != null) {
+        try {
+            Dba db = new Dba();
+            String qry;
+            qry = "call pr_remove_friend ('"
+                    + request.getParameter("requestid") + "')";
+            out.println(qry);
+            db.conectar();
+            db.query.execute(qry);
+            db.desconectar();
+            request.getRequestDispatcher("../home.jsp?friendsList=1&message=204").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            out.println(e);
             request.getRequestDispatcher("../home.jsp?friendsList=1&message=500").forward(request, response);
         }
     }
