@@ -43,8 +43,18 @@
                         <p class="card-text">Fecha Nac. <%=rs.getString(8)%></p>
                         <p class="card-text">Pais: <%=rs.getString(7)%></p>
                         <p class="card-text"><small class="text-muted">Amigos desde <%=rs.getString(9)%></small></p>
-                        <a class="btn btn-success btn-sm btn-block" href="home.jsp?projectsList=1&friendProjectList=1" role="button">Ver Proyectos</a>
+                        <%
+                            if (session.getAttribute("s_tipo").equals("USUARIO")) {
+                        %>
                         <a class="btn btn-dark btn-sm btn-block" href="handleFriends.jsp?removeFriend=1&requestid=<%=rs.getString(10)%>" role="button">Un-friend</a>
+                        <%
+                        } else {
+                        %>
+                        <a class="btn btn-success btn-sm btn-block" href="home.jsp?projectsList=1&friendProjectList=1&userid=<%=rs.getString(1)%>" role="button">Ver Proyectos</a>
+                        <a class="btn btn-dark btn-sm btn-block" href="handleFriends.jsp?removeFriend=1&requestid=<%=rs.getString(10)%>" role="button">Un-friend</a>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
             </div>

@@ -44,7 +44,7 @@
                         <p class="card-text">Email: <%=rs.getString(4)%></p>
                         <p class="card-text">Fecha Nac. <%=rs.getString(8)%></p>
                         <p class="card-text">Pais: <%=rs.getString(7)%></p>
-                        <a class="btn btn-success btn-sm btn-block" href="handleFriends.jsp?addFriend=1&userid=<%=rs.getString(1)%>" role="button">Hacer Amigo</a>
+                        <a class="btn btn-success btn-sm btn-block" href="handleFriends.jsp?addFriend=1&userid=<%=rs.getString(1)%>" role="button">Enviar Solicitud de Amigo</a>
                     </div>
                 </div>
             </div>

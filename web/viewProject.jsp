@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="database.Dba"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html>
@@ -34,6 +36,33 @@
         <jsp:include page="components/secure.jsp" />
         <jsp:include page="components/header.jsp" />
         <br></br>
+        <%
+            if (request.getParameter("projectId") != null) {
+                try {
+                    Dba db = new Dba();
+                    String qry = "select projectId, projectName, projectDesc, "
+                            + "createdAt, createdBy, updatedAt, username, firstname, lastname "
+                            + "from vw_projects "
+                            + "where projectId = '" + request.getParameter("projectId") + "'";
+                    db.conectar();
+                    db.query.execute(qry);
+                    ResultSet rs = db.query.getResultSet();
+                    while (rs.next()) {
+        %>
+        <div class="container">
+            <h2>Nombre Proyecto: <%=rs.getString(2)%></h2>
+            <p class="h5 text-blue"> Descripción: <%=rs.getString(3)%></p>
+            <br></br>
+        </div>
+        <%
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    out.println(e);
+                    request.getRequestDispatcher("home.jsp?message=500").forward(request, response);
+                }
+            }
+        %>
         <div class="container-fluid">
             <form name="formUpdateFile" method="POST">
 
@@ -74,9 +103,10 @@
                         <div class="col-md-12">
                             <a href="viewProject.jsp" class="btn btn-primary">Editar Proyecto</a>
                             <br></br>
+                            <a href="<%=application.getContextPath()%>/OZUNIGA/Readme.md">link here</a>
+                            <jsp:include page="/Users/fernando/Desktop/OZUNIGA/Readme.md" flush="true" />
                             <h2><label for="readme" id="datos"></label></h2>
                             <textarea id="txt-content" class="form-control" name="txt-content"></textarea>
-
                         </div>
                     </div>
 

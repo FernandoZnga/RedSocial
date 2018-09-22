@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/components/friendsList.jsp</file>
-            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/components/header.jsp</file>
-            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/components/handleFriends.jsp</file>
-            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/components/messages.jsp</file>
-            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/home.jsp</file>
-            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/components/friendsToSearch.jsp</file>
-            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/components/friendsRequests.jsp</file>
+            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/sendMail.jsp</file>
+            <file>file:/Users/fernando/NetBeansProjects/RedSocial/web/newUser.jsp</file>
         </group>
     </open-files>
 </project-private>

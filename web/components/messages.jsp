@@ -62,6 +62,16 @@
 </div>
 <%
     }
+        if (request.getParameter("message").equals("206")) {
+%>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Exito!</strong> Proyecto creado.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<%
+    }
 //
 // Seccion de errores
     if (request.getParameter("message").equals("500")) {
