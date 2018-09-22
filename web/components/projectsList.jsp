@@ -14,6 +14,12 @@
     <h2>Proyectos de Mi Amigo</h2>
 </div>
 <%
+} else {
+%>
+<div class="container">
+    <h2>Mis Proyectos</h2>
+</div>
+<%
     }
 %>
 <div class="container"><br>

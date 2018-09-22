@@ -12,7 +12,8 @@
             Dba db = new Dba();
             db.conectar();
             String qry = "select a.uuid, a.firstname, a.lastname, a.email, a.createdAt usuario_desde, "
-                    + "a.username, a.country, a.dateofbirth, b.createdAt amigos_desde, b.requestId friendRequest "
+                    + "a.username, a.country, TO_CHAR(a.dateofbirth,'dd-Mon-yyyy') fecha_nacimiento, "
+                    + "TO_CHAR(b.createdAt,'dd-Mon-yyyy') amigos_desde, b.requestId friendRequest "
                     + "from (select * "
                     + "from users where uuid <> '" + session.getAttribute("s_userid") + "') a "
                     + "left join (select * "
@@ -22,6 +23,9 @@
             db.query.execute(qry);
             ResultSet rs = db.query.getResultSet();
 %>
+<div class="container">
+    <h2>Mis Amigos</h2>
+</div>
 <br>
 <div class="container">
     <div class="row">

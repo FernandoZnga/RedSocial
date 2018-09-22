@@ -25,10 +25,10 @@
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
                     <h1 class="text-center login-title">Login</h1>
                     <div class="account-wall">
-                        <form action="login.jsp" class="form-signin" method="POST">
-                            <input name="username" type="text" class="form-control text-uppercase" placeholder="Usuario" required autofocus>
+                        <form name="loginForm" action="login.jsp" class="form-signin" method="POST">
+                            <input id="username" name="username" type="text" class="form-control text-uppercase" placeholder="Usuario" required autofocus>
                             <br>
-                            <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
+                            <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" required>
                             <br>
                             <button class="btn btn-lg btn-primary btn-block" type="submit" name="btLogin" id="btLogin">Login</button>
                         </form>

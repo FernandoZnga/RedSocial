@@ -14,6 +14,14 @@
         <title>Nuevo Usuario</title>
     </head>
     <body>
+        <%
+            if (request.getParameter("createUser") != null) {
+        %>
+        <jsp:include page="components/secure.jsp" />
+        <jsp:include page="components/header.jsp" />
+        <%
+            }
+        %>
         <br>
         <div class="container">
             <div class="row">
@@ -63,7 +71,7 @@
                                         <div class="form-group row">
                                             <label for="country" class="col-4 col-form-label">País*</label> 
                                             <div class="col-6">
-                                                <select class="form-control text-capitalize" name="country" required>
+                                                <select class="form-control text-capitalize" name="country" required id="country" onkeyup='checkCountry();'>
                                                     <option selected disabled>Seleccione una opción</option>
                                                     <option value="Honduras">Honduras</option>
                                                     <option value="Guatemala">Guatemala</option>
@@ -98,6 +106,21 @@
                                                 </select>
                                             </div>
                                         </div> 
+                                        <%
+                                            if (request.getParameter("createUser") != null) {
+                                        %>
+                                        <div class="form-group row">
+                                            <div class="offset-4 col-2">
+                                                <button id="btCrear" name="btCrear" type="submit" class="btn btn-primary">Crear!</button>
+                                            </div>
+
+                                            <div class="offset-0 col-2">
+                                                <a href="home.jsp?usersList=1">Cancelar</a>
+                                            </div>
+                                        </div>                                        
+                                        <%
+                                        } else {
+                                        %>
                                         <div class="form-group row">
                                             <div class="offset-4 col-2">
                                                 <button id="btRegistro" name="btRegistro" type="submit" class="btn btn-primary">Registro!</button>
@@ -106,7 +129,11 @@
                                             <div class="offset-0 col-2">
                                                 <a href="index.jsp">Cancelar</a>
                                             </div>
-                                        </div>
+                                        </div>                                
+                                        <%
+                                            }
+                                        %>
+
                                     </form>
                                 </div>
                             </div>
@@ -123,13 +150,29 @@
                         document.getElementById('message').style.color = 'green';
                         document.getElementById('message').innerHTML = ' Concuerda';
                         document.getElementById('btRegistro').disabled = false;
+                        document.getElementById('btCrear').disabled = false;
                     }
                 } else {
                     document.getElementById('message').style.color = 'red';
                     document.getElementById('message').innerHTML = ' No concuerda';
                     document.getElementById('btRegistro').disabled = true;
+                    document.getElementById('btCrear').disabled = true;
                 }
-            };
+            }
+
+//            var checkCountry = function () {
+//                if (document.getElementById('country').length === 0) {
+//                    document.getElementById('btRegistro').disabled = true;
+//                    document.getElementById('btCrear').disabled = true;
+//                } else {
+//                    document.getElementById('btRegistro').disabled = false;
+//                    document.getElementById('btCrear').disabled = false;
+//                }
+//            }
+            $('#country').on('change', function () {
+                $('#send').prop('disabled', !$(this).val());
+            }).trigger('change');
+            
         </script>
     </body>
 </html>

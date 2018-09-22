@@ -13,7 +13,7 @@
             Dba db = new Dba();
             db.conectar();
             String qry;
-            qry = "SELECT * FROM vw_users";
+            qry = "SELECT * FROM vw_user_info order by 3, 2";
             db.query.execute(qry);
             ResultSet rs = db.query.getResultSet();
 %>
@@ -26,8 +26,8 @@
             <thead>
                 <tr>
                     <th scope="col">Fila</th>
-                    <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Usuario</th>
                     <th scope="col">Email</th>
                     <th scope="col">País</th>
@@ -43,23 +43,22 @@
                 %>
                 <tr>
                     <th scope="row"><%out.print(row_number++);%></th>
-                    <td class="text-capitalize"><%=rs.getString(4)%></td>
-                    <td class="text-capitalize"><%=rs.getString(5)%></td>
-                    <td><%=rs.getString(2)%></td>
+                    <td class="text-capitalize"><%=rs.getString(3)%></td>
+                    <td class="text-capitalize"><%=rs.getString(2)%></td>
                     <td><%=rs.getString(6)%></td>
-                    <td><%=rs.getString(8)%></td>
-                    <td><%=rs.getString(7)%></td>
-                    <td><%=rs.getString(13)%></td>
+                    <td><%=rs.getString(4)%></td>
                     <td><%=rs.getString(11)%></td>
+                    <td><%=rs.getString(12)%></td>
+                    <td><%=rs.getString(9)%></td>
+                    <td><%=rs.getString(7)%></td>
                     <%
-                        if (session.getAttribute("s_username").equals(rs.getString(2))) {
+                        if (session.getAttribute("s_userid").equals(rs.getString(1))) {
                     %>
-                    <td><a class="btn btn-outline-info btn-sm" href="adminUserPage.jsp?unameid=<%=rs.getString(1)%>&country=<%=rs.getString(8)%>&ustatusid=<%=rs.getString(10)%>&utypeid=<%=rs.getString(12)%>" hidden role="button">Editar</a></td>
+                    <td><a class="btn btn-outline-info btn-sm" href="adminUserPage.jsp?editUser=1&userid=<%=rs.getString(1)%>" hidden role="button">Editar</a></td>
                     <%
                     } else {
                     %>
-                    <!--<td><a class="btn btn-outline-info btn-sm" href="adminUserPage.jsp?unameid=<%=rs.getString(1)%>&country=<%=rs.getString(8)%>&ustatusid=<%=rs.getString(10)%>&utypeid=<%=rs.getString(12)%>" role="button">Editar</a></td>-->
-                    <td><a class="btn btn-outline-info btn-sm" href="adminUserPage.jsp?unameid=<%=rs.getString(1)%>" role="button">Editar</a></td>
+                    <td><a class="btn btn-outline-info btn-sm" href="adminUserPage.jsp?editUser=1&userid=<%=rs.getString(1)%>" role="button">Editar</a></td>
 
                     <%
                         }
@@ -77,7 +76,7 @@
         } catch (Exception e) {
             e.printStackTrace();
             out.print(e);
-            request.getRequestDispatcher("home.jsp?usersList=1&message=502").forward(request, response);
+            request.getRequestDispatcher("home.jsp?projectsList=1&message=500").forward(request, response);
         }
     }
 %>

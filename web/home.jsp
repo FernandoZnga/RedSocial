@@ -30,6 +30,9 @@
         <jsp:include page="components/friendsRequests.jsp" />
         <jsp:include page="components/friendsList.jsp" />
         
+        <!--seccion de usurios-->
+        <jsp:include page="components/usersList.jsp" />
+        
         <!--footer-->
         <jsp:include page="components/footer.jsp" />
 

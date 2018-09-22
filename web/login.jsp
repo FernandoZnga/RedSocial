@@ -1,12 +1,14 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="database.Dba"%>
 <%
+//request.setAttribute("password",hex_md5(request.getParameter('password')));
     if (request.getParameter("btLogin") != null) {
         try {
             Dba db = new Dba();
             String qry = "select fn_valid_user_pass ('"
                     + request.getParameter("username").toUpperCase()
                     + "','" + request.getParameter("password") + "') valid "
+                    //                    + "','" + request.getParameter("password") + "') valid "
                     + "from dual";
             db.conectar();
             db.query.execute(qry);

@@ -62,7 +62,7 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="adminUserPage.jsp?unameid=<%=session.getAttribute("s_userid")%>&myAccount=1">Mi Cuenta [<%=session.getAttribute("s_username")%>]<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="adminUserPage.jsp?editUser=1&userid=<%=session.getAttribute("s_userid")%>&myAccount=1">Mi Cuenta [<%=session.getAttribute("s_username")%>]<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="loginPage.jsp?logout=1">Salir <span class="sr-only">(current)</span></a>

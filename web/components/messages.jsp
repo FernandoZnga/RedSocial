@@ -52,6 +52,16 @@
 </div>
 <%
     }
+        if (request.getParameter("message").equals("205")) {
+%>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Exito!</strong> Datos de usuario actualizados.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<%
+    }
 //
 // Seccion de errores
     if (request.getParameter("message").equals("500")) {

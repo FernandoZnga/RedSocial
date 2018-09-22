@@ -22,6 +22,9 @@
             db.query.execute(qry);
             ResultSet rs = db.query.getResultSet();
 %>
+<div class="container">
+    <h2>Buscar Amigo</h2>
+</div>
 <br>
 <div class="container">
     <div class="row">
