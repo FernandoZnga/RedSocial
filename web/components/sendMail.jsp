@@ -8,7 +8,7 @@
 <%@page import="javax.mail.*" %>
 <%@page import="javax.mail.internet.*" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 <!--<!DOCTYPE html>-->
 <!--<html>
     <head>
@@ -27,7 +27,7 @@
 %>
 <%
     int result = 0;
-    if (request.getParameter("send") != null) {
+    if (request.getParameter("email") != null) {
         try {
             String d_uname = "fernando.ceutec";
             String d_password = "ceutecceutec";
@@ -41,10 +41,10 @@
 
             m_to = request.getParameter("email");
             m_subject = "Red Social - Proyecto App Web";
-            m_text = "<h1>Bienvenido a la Aplicacion Web - Red Social -</h1><br/><br />";
-            m_text = m_text.concat("Hola ");
+            m_text = "<h1>Bienvenido a la Aplicacion Web - Red Social -</h1>";
+            m_text = m_text.concat("<h2>Hola ");
             m_text = m_text.concat(request.getParameter("username"));
-            m_text = m_text.concat("<br /><h2>Tu cuenta ha sido creada exitosamente!</h2>");
+            m_text = m_text.concat(":<br />Tu cuenta ha sido creada exitosamente!</h2>");
 
 //                    if (request.getParameter("to") != null) {
 //                        m_to = request.getParameter("to");
@@ -77,11 +77,11 @@
             transport.connect(d_host, d_port, d_uname, d_password);
             transport.sendMessage(msg, msg.getAllRecipients());
             transport.close();
-
+            out.println("here");
             result = 1;
 
-        } catch (Exception e) {
-            out.println(e);
+        } catch (Exception ex) {
+            out.println(ex);
         }
     }
 %>

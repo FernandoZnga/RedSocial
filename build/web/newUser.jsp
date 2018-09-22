@@ -12,16 +12,17 @@
                     + request.getParameter("country") + "','"
                     + request.getParameter("dob") + "')";
             db.conectar();
+            out.println(qry);
             db.query.execute(qry);
             db.desconectar();
 %>
-<%--<jsp:include page="components/sendMail.jsp" />--%>
+<jsp:include page="components/sendMail.jsp" />
 <%
-//            request.getRequestDispatcher("loginPage.jsp?message=200").forward(request, response);
+            request.getRequestDispatcher("loginPage.jsp?message=200").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             out.println(e);
-//            request.getRequestDispatcher("loginPage.jsp?message=500").forward(request, response);
+            request.getRequestDispatcher("loginPage.jsp?message=505").forward(request, response);
         }
     }
     if (request.getParameter("btCrear") != null) {
@@ -36,16 +37,17 @@
                     + request.getParameter("country") + "','"
                     + request.getParameter("dob") + "')";
             db.conectar();
+            out.println(qry);
             db.query.execute(qry);
             db.desconectar();
 %>
-<%--<jsp:include page="components/sendMail.jsp" />--%>
+<jsp:include page="components/sendMail.jsp" />
 <%
             request.getRequestDispatcher("home.jsp?usersList=1&message=200").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             out.println(e);
-            request.getRequestDispatcher("home.jsp?usersList=1&message=500").forward(request, response);
+            request.getRequestDispatcher("home.jsp?usersList=1&message=505").forward(request, response);
         }
     }
 %>
