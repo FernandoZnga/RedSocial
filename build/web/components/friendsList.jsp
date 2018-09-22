@@ -25,11 +25,12 @@
 <br>
 <div class="container">
     <div class="row">
-        <div class="card-deck">
-            <%
-                while (rs.next()) {
-            %>
-            <div class="col-sm-4">
+
+        <%
+            while (rs.next()) {
+        %>
+        <div class="col-sm-3">
+            <div class="card-deck">
                 <div class="card">
                     <img class="card-img-top" src="https://robohash.org/<%=rs.getString(6)%>" alt="<%=rs.getString(2)%> <%=rs.getString(3)%>">
                     <div class="card-body">
@@ -39,20 +40,21 @@
                         <p class="card-text">Pais: <%=rs.getString(7)%></p>
                         <p class="card-text"><small class="text-muted">Amigos desde <%=rs.getString(9)%></small></p>
                         <a class="btn btn-success btn-sm btn-block" href="home.jsp?projectsList=1&friendProjectList=1" role="button">Ver Proyectos</a>
-                        <a class="btn btn-dark btn-sm btn-block" href="home.jsp?removeFriend=1&requestid=<%=rs.getString(10)%>" role="button">Un-friend</a>
+                        <a class="btn btn-dark btn-sm btn-block" href="handleFriends.jsp?removeFriend=1&requestid=<%=rs.getString(10)%>" role="button">Un-friend</a>
                     </div>
                 </div>
             </div>
-            <%
-                    }
-                    db.desconectar();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    out.println(e);
-                    //request.getRequestDispatcher("home.jsp?friendsList=1&message=502").forward(request, response);
-                }
-            %>
         </div>
+        <%
+                }
+                db.desconectar();
+            } catch (Exception e) {
+                e.printStackTrace();
+                out.println(e);
+                request.getRequestDispatcher("home.jsp?projectsList=1&message=502").forward(request, response);
+            }
+        %>
+
     </div>
 </div>
 <%

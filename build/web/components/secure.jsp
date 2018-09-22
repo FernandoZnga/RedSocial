@@ -13,6 +13,7 @@
             ResultSet rsToken = db.query.getResultSet();
             while (rsToken.next()) {
                 if (rsToken.getString(1).equals("0")) {
+                    db.desconectar();
                     request.getRequestDispatcher("../loginPage.jsp?message=504").forward(request, response);
                 }
                 break;

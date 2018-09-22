@@ -25,7 +25,7 @@
         <jsp:include page="components/projectsList.jsp" />
         
         <!--friends section-->
-        <jsp:include page="components/handleFriends.jsp" />
+        <%--<jsp:include page="components/handleFriends.jsp" />--%>
         <jsp:include page="components/friendsToSearch.jsp" />
         <jsp:include page="components/friendsRequests.jsp" />
         <jsp:include page="components/friendsList.jsp" />

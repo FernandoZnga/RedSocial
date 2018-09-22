@@ -48,7 +48,7 @@
             } catch (Exception e) {
                 e.printStackTrace();
                 out.println(e);
-//                request.getRequestDispatcher("home.jsp?message=501").forward(request, response);
+                request.getRequestDispatcher("home.jsp?message=501").forward(request, response);
             }
         %>
     </div>
